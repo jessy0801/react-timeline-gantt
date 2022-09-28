@@ -20,8 +20,9 @@ export class HeaderItem extends PureComponent {
           borderLeft: 'solid 1px white',
           position: 'absolute',
           height: 20,
+          ...this.props.dayStyles,
           left: this.props.left,
-          width: this.props.width
+          width: this.props.width,
         }}
       >
         <div>{this.props.label}</div>
@@ -147,7 +148,15 @@ export default class Header extends PureComponent {
         if (bottom == 'shorttime' || bottom == 'fulltime') {
           result.bottom.push(this.renderTime(box.left, box.width, bottom, i));
         } else {
-          result.bottom.push(<HeaderItem key={i} left={box.left} width={box.width} label={currentBottom} />);
+          result.bottom.push(
+            <HeaderItem
+              key={i}
+              dayStyles={i === 0 && Config.values.header.bottom.highlightStyle}
+              left={box.left}
+              width={box.width}
+              label={currentBottom}
+            />
+          );
         }
       }
     }
