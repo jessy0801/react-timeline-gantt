@@ -3,5 +3,6 @@
   "tabWidth": 2,
   "singleQuote": true,
   "arrowParens": "always",
-  "semicolons": false
+  "semicolons": false,
+  "trailingComma": "none"
 }
