@@ -23,6 +23,11 @@ const defvalues = {
         color: 'white',
         fontSize: 9
       },
+      currentDayStyle: {
+        background: 'white',
+        color: 'black',
+        fontSize: 9
+      },
       selectedStyle: {
         backgroundColor: '#b13525',
         fontWeight: 'bold'
@@ -55,7 +60,7 @@ const defvalues = {
       }
     }
   },
-  dataViewPort: {    
+  dataViewPort: {
     rows: {
       style: {
         backgroundColor: '#fbf9f9',

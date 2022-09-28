@@ -138,7 +138,15 @@ export default class Header extends PureComponent {
         currentMiddle = currentDate.format(this.getFormat(middle));
         box = this.getBox(currentDate, middle, lastLeft.middle);
         lastLeft.middle = box.left + box.width;
-        result.middle.push(<HeaderItem key={i} left={box.left} width={box.width} label={currentMiddle} />);
+        result.middle.push(
+          <HeaderItem
+            key={i}
+            dayStyles={i === 0 && Config.values.header.bottom.currentDayStyle}
+            left={box.left}
+            width={box.width}
+            label={currentMiddle}
+          />
+        );
       }
 
       if (currentBottom != currentDate.format(this.getFormat(bottom))) {
@@ -151,7 +159,7 @@ export default class Header extends PureComponent {
           result.bottom.push(
             <HeaderItem
               key={i}
-              dayStyles={i === 0 && Config.values.header.bottom.highlightStyle}
+              dayStyles={i === 0 && Config.values.header.bottom.currentDayStyle}
               left={box.left}
               width={box.width}
               label={currentBottom}
