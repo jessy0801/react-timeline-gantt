@@ -40,8 +40,8 @@ export class TaskRow extends Component {
             {this.props.label}
           </div>
         ) : (
-            <ContentEditable value={this.props.label} index={this.props.index} onChange={this.onChange} />
-          )}
+          <ContentEditable value={this.props.label} index={this.props.index} onChange={this.onChange} />
+        )}
       </div>
     );
   }
@@ -62,13 +62,14 @@ export default class TaskList extends Component {
     const groups = Registry.groupData(data, this.props.startRow, this.props.endRow + 1);
     Object.keys(groups).forEach((key, i) => {
       const group = groups[key];
-      group.forEach(item => {
+      group.forEach((item) => {
+        console.log('ITEM: ', item);
         result.push(
           <TaskRow
             key={i + item.id}
             index={item.name + i}
             item={item}
-            label={key}
+            label={item.name}
             top={i * this.props.itemheight}
             itemheight={this.props.itemheight}
             isSelected={this.props.selectedItem == item}
