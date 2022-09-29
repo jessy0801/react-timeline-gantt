@@ -239,7 +239,6 @@ class App extends Component {
           <TimeLine
             // config={config}
             data={this.state.data}
-            taskNote={''}
             links={this.state.links}
             onHorizonChange={this.onHorizonChange}
             onSelectItem={this.onSelectItem}

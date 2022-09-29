@@ -51,7 +51,7 @@ export class DataViewPort extends Component {
                 key={item.id}
                 item={item}
                 label={item.name}
-                taskNote={this.props.taskNote}
+                note={item.note}
                 nowposition={this.props.nowposition}
                 dayWidth={this.props.dayWidth}
                 color={item.color}
