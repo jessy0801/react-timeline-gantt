@@ -22,7 +22,7 @@ export class HeaderItem extends PureComponent {
           height: 20,
           ...this.props.dayStyles,
           left: this.props.left,
-          width: this.props.width,
+          width: this.props.width
         }}
       >
         <div>{this.props.label}</div>
@@ -156,6 +156,7 @@ export default class Header extends PureComponent {
         if (bottom == 'shorttime' || bottom == 'fulltime') {
           result.bottom.push(this.renderTime(box.left, box.width, bottom, i));
         } else {
+          console.log('CHECK: ', i === 0);
           result.bottom.push(
             <HeaderItem
               key={i}
