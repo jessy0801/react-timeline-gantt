@@ -133,6 +133,7 @@
 .timeLine-main-data-task-side {
   position: absolute;
   width: 10px;
+
   cursor: col-resize;
   display: flex;
   flex-direction: column;
@@ -148,6 +149,9 @@
 .timeLine-main-data-task-side-linker:hover {
   background-color: black;
   border: solid 0.5px grey;
+}
+.note-text-stroke {
+  -webkit-text-stroke: 0.75px white;
 }
 /* .timeLine-main-data-task:hover {
     background-color:chocolate;

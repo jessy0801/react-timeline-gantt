@@ -170,13 +170,18 @@ export default class DataTask extends Component {
           onMouseDown={(e) => this.doMouseDown(e, MOVE_RESIZE_RIGHT)}
           onTouchStart={(e) => this.doTouchStart(e, MOVE_RESIZE_RIGHT)}
         >
-          <div
-            className="timeLine-main-data-task-side-linker"
-            onMouseDown={(e) => this.onCreateLinkMouseDown(e, LINK_POS_RIGHT)}
-            onTouchStart={(e) => this.onCreateLinkTouchStart(e, LINK_POS_RIGHT)}
-          />
-          <div style={{ ...Config.values.dataViewPort.task.taskNoteStyle }}>
-            <p>{this.props.taskNote}</p>
+          <div style={{ display: 'flex', width: '80px', height: '10px', alignItems: 'center' }}>
+            <div
+              className="timeLine-main-data-task-side-linker"
+              onMouseDown={(e) => this.onCreateLinkMouseDown(e, LINK_POS_RIGHT)}
+              onTouchStart={(e) => this.onCreateLinkTouchStart(e, LINK_POS_RIGHT)}
+            />
+
+            <div style={{ ...Config.values.dataViewPort.task.taskNoteStyle }}>
+              <p className="note-text-stroke" style={{ margin: '0px' }}>
+                {this.props.taskNote}
+              </p>
+            </div>
           </div>
         </div>
       </div>

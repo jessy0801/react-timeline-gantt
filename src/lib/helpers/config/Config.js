@@ -71,8 +71,12 @@ const defvalues = {
       showLabel: false,
 
       taskNoteStyle: {
+        fontSize: '12px',
+        fontWeight: 'bold',
         color: 'black',
-        width: '75px'
+        marginLeft: '10px',
+        zIndex: 1,
+        stroke: 'white'
       },
 
       style: {
