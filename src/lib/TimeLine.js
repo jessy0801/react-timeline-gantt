@@ -25,6 +25,8 @@ class TimeLine extends Component {
     //This variable define the number of pixels the viewport can scroll till arrive to the end of the context
     this.pxToScroll = 1900;
 
+    let taskNote = '';
+
     let dayWidth = this.getDayWidth(this.props.mode);
     Config.load(this.props.config);
     //Initialising state
@@ -41,6 +43,7 @@ class TimeLine extends Component {
       numVisibleRows: 40,
       numVisibleDays: 60,
       dayWidth: dayWidth,
+      taskNote: taskNote,
       interactiveMode: false,
       taskToCreate: null,
       links: [],
@@ -107,13 +110,11 @@ class TimeLine extends Component {
     //Check if we have scrolling rows
     let rowInfo = this.calculateStartEndRows(this.state.numVisibleRows, this.props.data, scrollTop);
     if (rowInfo.start !== this.state.start) {
-      this.setState(
-       {
-          scrollTop: scrollTop,
-          startRow: rowInfo.start,
-          endRow: rowInfo.end
-        }
-      );
+      this.setState({
+        scrollTop: scrollTop,
+        startRow: rowInfo.start,
+        endRow: rowInfo.end
+      });
     }
   };
 
@@ -161,16 +162,14 @@ class TimeLine extends Component {
     //If we need updates then change the state and the scroll position
     //Got you
     this.setStartEnd();
-    this.setState(
-       {
-        currentday: currentIndx,
-        nowposition: new_nowposition,
-        headerData: headerData,
-        scrollLeft: new_left,
-        startRow: new_startRow,
-        endRow: new_endRow
-      }
-    );
+    this.setState({
+      currentday: currentIndx,
+      nowposition: new_nowposition,
+      headerData: headerData,
+      scrollLeft: new_left,
+      startRow: new_startRow,
+      endRow: new_endRow
+    });
   };
 
   calculateVerticalScrollVariables = (size) => {
@@ -263,8 +262,7 @@ class TimeLine extends Component {
 
   onFinishCreateLink = (task, position) => {
     console.log(`End Link ${task}`);
-    if (this.props.onCreateLink && task &&
-      this.state.taskToCreate && this.state.taskToCreate.task.id != task.id) {
+    if (this.props.onCreateLink && task && this.state.taskToCreate && this.state.taskToCreate.task.id != task.id) {
       this.props.onCreateLink({
         start: this.state.taskToCreate,
         end: { task: task, position: position }
@@ -315,12 +313,13 @@ class TimeLine extends Component {
       Registry.registerLinks(this.props.links);
     }
   };
+
   render() {
     this.checkMode();
     this.checkNeeeData();
-    console.log('On render')
-    if(!this.state.size){
-      console.log(this.state)
+    console.log('On render');
+    if (!this.state.size) {
+      console.log(this.state);
     }
     return (
       <div className="timeLine">
@@ -351,6 +350,7 @@ class TimeLine extends Component {
           />
           <DataViewPort
             ref="dataViewPort"
+            taskNote={this.props.taskNote}
             scrollLeft={this.state.scrollLeft}
             scrollTop={this.state.scrollTop}
             itemheight={this.props.itemheight}

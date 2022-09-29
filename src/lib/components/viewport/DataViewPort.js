@@ -43,14 +43,15 @@ export class DataViewPort extends Component {
       const group = groups[key];
       result.push(
         <DataRow key={key} label={key} top={i * this.props.itemheight} left={20} itemheight={this.props.itemheight}>
-          {
-            group.map(item => {
-              let new_position = DateHelper.dateToPixel(item.start, this.props.nowposition, this.props.dayWidth);
-              let new_width = DateHelper.dateToPixel(item.end, this.props.nowposition, this.props.dayWidth) - new_position;
-              return <DataTask
+          {group.map((item) => {
+            let new_position = DateHelper.dateToPixel(item.start, this.props.nowposition, this.props.dayWidth);
+            let new_width = DateHelper.dateToPixel(item.end, this.props.nowposition, this.props.dayWidth) - new_position;
+            return (
+              <DataTask
                 key={item.id}
                 item={item}
                 label={item.name}
+                taskNote={this.props.taskNote}
                 nowposition={this.props.nowposition}
                 dayWidth={this.props.dayWidth}
                 color={item.color}
@@ -67,8 +68,8 @@ export class DataViewPort extends Component {
               >
                 {' '}
               </DataTask>
-            })
-          }
+            );
+          })}
         </DataRow>
       );
     });

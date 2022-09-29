@@ -70,6 +70,11 @@ const defvalues = {
     task: {
       showLabel: false,
 
+      taskNoteStyle: {
+        color: 'black',
+        width: '75px'
+      },
+
       style: {
         position: 'absolute',
         borderRadius: 14,
