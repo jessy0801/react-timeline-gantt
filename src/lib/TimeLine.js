@@ -253,7 +253,6 @@ class TimeLine extends Component {
   };
 
   onStartCreateLink = (task, position) => {
-    console.log(`Start Link ${task}`);
     this.setState({
       interactiveMode: true,
       taskToCreate: { task: task, position: position }
@@ -261,7 +260,6 @@ class TimeLine extends Component {
   };
 
   onFinishCreateLink = (task, position) => {
-    console.log(`End Link ${task}`);
     if (this.props.onCreateLink && task && this.state.taskToCreate && this.state.taskToCreate.task.id != task.id) {
       this.props.onCreateLink({
         start: this.state.taskToCreate,
@@ -317,10 +315,6 @@ class TimeLine extends Component {
   render() {
     this.checkMode();
     this.checkNeeeData();
-    console.log('On render');
-    if (!this.state.size) {
-      console.log(this.state);
-    }
     return (
       <div className="timeLine">
         <div className="timeLine-side-main" style={this.state.sideStyle}>

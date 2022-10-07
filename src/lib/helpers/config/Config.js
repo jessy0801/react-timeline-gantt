@@ -78,12 +78,19 @@ const defvalues = {
         zIndex: 1,
         stroke: 'white'
       },
-
       style: {
         position: 'absolute',
         borderRadius: 14,
         color: 'white',
         textAlign: 'center',
+        backgroundColor: 'grey'
+      },
+      styleSection: {
+        position: 'absolute',
+        borderRadius: 14,
+        color: 'white',
+        textAlign: 'center',
+        fontWeight: 'bold',
         backgroundColor: 'grey'
       },
       selectedStyle: {

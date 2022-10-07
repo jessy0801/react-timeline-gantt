@@ -29,7 +29,7 @@ export class TaskRow extends Component {
       <div
         className="timeLine-side-task-row"
         style={{
-          ...Config.values.taskList.task.style,
+          ...(this.props.section ? Config.values.taskList.task.styleSection : Config.values.taskList.task.style),
           top: this.props.top,
           height: this.props.itemheight
         }}
@@ -70,6 +70,7 @@ export default class TaskList extends Component {
             index={item.name + i}
             item={item}
             label={item.name}
+            section={item.section}
             top={i * this.props.itemheight}
             itemheight={this.props.itemheight}
             isSelected={this.props.selectedItem == item}
