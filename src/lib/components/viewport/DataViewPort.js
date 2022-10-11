@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DATA_CONTAINER_WIDTH } from 'libs/Const';
 import DataTask from 'libs/components/viewport/DataTask';
 import DateHelper from 'libs/helpers/DateHelper';
-import sizeMe from 'react-sizeme';
+//import sizeMe from 'react-sizeme';
 import Config from 'libs/helpers/config/Config';
 import Registry from 'libs/helpers/registry/Registry';
 
@@ -132,5 +132,5 @@ export class DataViewPort extends Component {
   }
 }
 
-export default sizeMe({ monitorWidth: true, monitorHeight: true })(DataViewPort);
-//export default DataViewPort;
+//export default sizeMe({ monitorWidth: true, monitorHeight: true })(DataViewPort);
+export default DataViewPort;
