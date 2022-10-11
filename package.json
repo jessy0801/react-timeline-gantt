@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --config webpack.config.demo.js ",
+    "start": "webpack serve --mode development --config webpack.config.demo.js ",
     "prod": "webpack --mode production --open --config webpack.config.prod.js ",
     "prodser": "webpack-dev-server  --mode production --open --config webpack.config.prod.js ",
     "build": "webpack --mode production  --config webpack.config.build.js",

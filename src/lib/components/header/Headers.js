@@ -34,6 +34,7 @@ export class HeaderItem extends PureComponent {
 export default class Header extends PureComponent {
   constructor(props) {
     super(props);
+    this.Header = React.createRef();
     this.setBoundaries();
   }
 
@@ -208,14 +209,14 @@ export default class Header extends PureComponent {
   };
 
   render() {
-    if (this.refs.Header) this.refs.Header.scrollLeft = this.props.scrollLeft;
+    if (this.Header.current) this.Header.current.scrollLeft = this.props.scrollLeft;
     //Check boundaries to see if wee need to recalcualte header
     // if (this.needToRender()|| !this.cache){
     //     this.cache=this.renderHeader();
     //     this.setBoundaries();
     // }
     return (
-      <div id="timeline-header" ref="Header" className="timeLine-main-header-viewPort">
+      <div id="timeline-header" ref={this.Header} className="timeLine-main-header-viewPort">
         {this.renderHeader()}
       </div>
     );

@@ -319,7 +319,7 @@ class TimeLine extends Component {
       <div className="timeLine">
         <div className="timeLine-side-main" style={this.state.sideStyle}>
           <TaskList
-            ref="taskViewPort"
+            //ref="taskViewPort"
             itemheight={this.props.itemheight}
             startRow={this.state.startRow}
             endRow={this.state.endRow}
@@ -343,7 +343,7 @@ class TimeLine extends Component {
             scrollLeft={this.state.scrollLeft}
           />
           <DataViewPort
-            ref="dataViewPort"
+            //ref="dataViewPort"
             taskNote={this.props.taskNote}
             scrollLeft={this.state.scrollLeft}
             scrollTop={this.state.scrollTop}
@@ -389,7 +389,6 @@ class TimeLine extends Component {
             selectedItem={this.props.selectedItem}
             onSelectItem={this.onSelectItem}
             itemheight={this.props.itemheight}
-            onSelectItem={this.onSelectItem}
             links={this.props.links}
           />
         </div>

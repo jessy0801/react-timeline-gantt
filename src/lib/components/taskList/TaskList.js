@@ -50,6 +50,7 @@ export class TaskRow extends Component {
 export default class TaskList extends Component {
   constructor(props) {
     super(props);
+    this.taskViewPort = React.createRef();
   }
 
   getContainerStyle(rows) {
@@ -69,7 +70,7 @@ export default class TaskList extends Component {
             key={i + item.id}
             index={item.name + i}
             item={item}
-            label={item.name}
+            label={item.groupName || item.name}
             section={item.section}
             top={i * this.props.itemheight}
             itemheight={this.props.itemheight}
@@ -85,18 +86,19 @@ export default class TaskList extends Component {
   }
 
   doScroll = () => {
-    this.props.onScroll(this.refs.taskViewPort.scrollTop);
+    this.props.onScroll(this.taskViewPort.current.scrollTop);
   };
 
   render() {
     let data = this.props.data ? this.props.data : [];
     this.containerStyle = this.getContainerStyle(data.length);
+
     return (
       <div className="timeLine-side">
         <div className="timeLine-side-title" style={Config.values.taskList.title.style}>
           <div>{Config.values.taskList.title.label}</div>
         </div>
-        <div ref="taskViewPort" className="timeLine-side-task-viewPort" onScroll={this.doScroll}>
+        <div ref={this.taskViewPort} className="timeLine-side-task-viewPort" onScroll={this.doScroll}>
           <div className="timeLine-side-task-container" style={this.containerStyle}>
             {this.renderTaskRow(data)}
           </div>
