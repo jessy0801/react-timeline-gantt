@@ -100,7 +100,7 @@ export class DataViewPort extends Component {
   }
 
   render() {
-    if (this.dataViewPort.current) {
+    if (this.dataViewPort.current?.scrollLeft && this.dataViewPort.current?.scrollTop) {
       this.dataViewPort.current.scrollLeft = this.props.scrollLeft;
       this.dataViewPort.current.scrollTop = this.props.scrollTop;
     }
