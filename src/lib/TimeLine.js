@@ -21,7 +21,7 @@ class TimeLine extends Component {
     this.draggingPosition = 0;
     this.dc = new DataController();
     this.dc.onHorizonChange = this.onHorizonChange;
-    this.initialise = false;
+
     //This variable define the number of pixels the viewport can scroll till arrive to the end of the context
     this.pxToScroll = 1900;
 
@@ -51,6 +51,13 @@ class TimeLine extends Component {
       size: { width: 1, height: 1 },
       changingTask: null
     };
+    this.dc.initialise(
+      this.state.scrollLeft + this.state.nowposition,
+      this.state.scrollLeft + this.state.nowposition + this.state.size.width,
+      this.state.nowposition,
+      this.state.dayWidth
+    );
+    this.initialise = true;
   }
 
   ////////////////////
